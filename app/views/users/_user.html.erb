@@ -1,0 +1,30 @@
+<h3>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>
+  errors prohibited this obj from being saved:
+  <% @book.errors.full_messages.each do |message| %>
+</h3>
+  <li><%= message %></li>
+  <% end %>
+<% end %>
+
+
+  <h2>User info</h2>
+
+  <tr><%= image_tag @user.get_profile_image(100,100) %></tr>
+    <table class='table'>
+      <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+      </tr>
+    </table>
+
+
+  <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block edit_user_path" do %>
+  <i class="fas fa-user-cog"></i>
+  <% end %>
+
